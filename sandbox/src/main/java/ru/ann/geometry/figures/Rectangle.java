@@ -1,12 +1,17 @@
 package ru.ann.geometry.figures;
 
-public class Rectangle {
-    public static void printRectangleArea(double a, double b) {
-        var text = String.format("Площадь прямоугольника со сторонами %.1f и %.1f = %.1f", a, b, rectangleArea(a, b));
+public record Rectangle(
+        double a,
+        double b
+) {
+
+
+    public static void printRectangleArea(Rectangle r) {
+        var text = String.format("Площадь прямоугольника со сторонами %.1f и %.1f = %.1f", r.a, r.b, r.rectangleArea());
         System.out.println(text);
     }
 
-    private static double rectangleArea(double a, double b) {
-        return a * b;
+    private double rectangleArea() {
+        return this.a * this.b;
     }
 }

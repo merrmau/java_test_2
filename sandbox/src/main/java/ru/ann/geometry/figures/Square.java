@@ -1,24 +1,25 @@
 package ru.ann.geometry.figures;
 
-public class Square {
+public record Square(double side) {
 
-    public static void printSquareArea(double side) {
-        String text = String.format("Площадь квадрата со стороной %.1f = %.1f", side, Area(side));
+
+    public static void printSquareArea(Square s) {
+        String text = String.format("Площадь квадрата со стороной %.1f = %.1f", s.side, s.area());
         System.out.println(text);
 
     }
-    public static void printSquareAreaPer (double side) {
-        String text = String.format("Периметр квадрата со стороной %.1f = %.1f", side, perimeter(side));
+    public static void printSquarePer(Square a) {
+        String text = String.format("Периметр квадрата со стороной %.1f = %.1f", a.side, a.perimeter());
         System.out.println(text);
 
     }
 
-    public static double Area(double a) {
-        return a * a;
+    public double area() {
+        return this.side * this.side;
     }
 
-    public static double perimeter(double a) {
-        return 4 * a;
+    public double perimeter() {
+        return 4 * this.side;
     }
 }
 
