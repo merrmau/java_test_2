@@ -5,6 +5,12 @@ public record Rectangle(
         double b
 ) {
 
+  public Rectangle {
+    if (a < 0 || b < 0) {
+      throw new IllegalArgumentException("Rectangle side should be non-negative");
+    }
+  }
+
 
     public static void printRectangleArea(Rectangle r) {
         var text = String.format("Площадь прямоугольника со сторонами %.1f и %.1f = %.1f", r.a, r.b, r.rectangleArea());
